@@ -29,7 +29,7 @@ if ret is False:
 else:
     os.makedirs(base, exist_ok=True)
     start = datetime.datetime.now()
-    print("Starting extraction of "+str(num_of_frames)+" random frames "+str(start))
+    print("Starting extraction of "+str(num_of_frames)+" random frames of "+video_name+": "+str(start))
     while(i < num_of_frames):
         frame_id = random.randint(0, max_length)
         
@@ -40,7 +40,8 @@ else:
         cv2.imwrite(base+"/frame%d.jpg" % i, frame)
         i+=1
     end = datetime.datetime.now()
-    print("Ending Conversion "+str(end))
+    print("Ending extraction :"+str(end))
+    print("Elapsed time: "+str((end-start)))
 
 video.release()
 cv2.destroyAllWindows()
